@@ -11,7 +11,6 @@ import evmos from "../../photos/icons/evmos.svg";
 import dc from "../../photos/icons/dc.svg";
 import ethpow from "../../photos/icons/ethpow.svg";
 import eth from "../../photos/icons/eth.svg";
-import base from "../../photos/icons/base.png";
 import { ClickAwayListener } from '@mui/material';
 
 const networks: any = {
@@ -125,16 +124,16 @@ const networks: any = {
         rpcUrls: ['https://eth-rpc.gateway.pokt.network'],
         blockExplorerUrls: ['https://etherscan.io'] 
     },
-    base: {
-        chainId: `0x${Number(8453).toString(16)}`,
-        chainName: 'Base',
+    mumbai: {
+        chainId: `0x13881`,
+        chainName: 'Polygon Mumbai Testnet',
         nativeCurrency: {
-            name: 'Base',
-            symbol: 'ETH',
+            name: 'Polygon',
+            symbol: 'MATIC',
             decimals: 18
         },
-        rpcUrls: ['https://developer-access-mainnet.base.org'],
-        blockExplorerUrls: ['https://goerli.basescan.org'] 
+        rpcUrls: ['https://polygon-mumbai-bor.publicnode.com'],
+        blockExplorerUrls: ['https://mumbai.polygonscan.com/'] 
     }
 };
 
@@ -183,6 +182,10 @@ export default function ChainSetter(props: any) {
                             deb0xViewsAddress: "0x93CC648eE2fBf366DD5d8D354C0946bE6ee4936c",
                             deb0xERC20Address: "0x47DD60FA40A050c0677dE19921Eb4cc512947729",
                             xenCryptoAddress: "0x2AB0e9e4eE70FFf1fB9D67031E44F6410170d00e",
+                            dbxenftFactoryAddress: "0x06F0B4D13B57bec1A713CdDE4F70Ab14f392D1e9",
+                            dbxenftAddress: "0x3C2a00C9bb3470D5785442a896a22Edb2e62619f",
+                            xenftAddress: "0x726bB6aC9b74441Eb8FB52163e9014302D4249e5",
+                            mintInfoAddress: "0x2B7B1173e5f5a1Bc74b0ad7618B1f87dB756d7d4",
                             chainId: parseInt(result, 16),
                             chainName: "polygon",
                             currency: "MATIC",
@@ -294,19 +297,23 @@ export default function ChainSetter(props: any) {
                             dxnTokenName: "vvDXN"
                         })
                         break;
-                    case 8453:
+                    case 80001:
                         setChain({
-                            deb0xAddress: "0x30782c020FE90614f08a863B41CbB07A2D2D94fF",
-                            deb0xViewsAddress: "0xF3281221bA95af0C5BBcBd2474cE8C090233133b",
-                            deb0xERC20Address: "0x9430A7e6283Fb704Fd1D9302868Bc39d16FE82Ba",
-                            xenCryptoAddress: "0xffcbF84650cE02DaFE96926B37a0ac5E34932fa5",
+                            deb0xAddress: "0x0E792967c96e14247ca787D31705537a62D5f95b",
+                            deb0xViewsAddress: "0x82D197ED51f4290F8F152D297e1ae13947FeBA61",
+                            deb0xERC20Address: "0x8072f9b55fA3077AbE0B03588E4e90fF8cB707e0",
+                            xenCryptoAddress: "0xF230D614e75aE05dF44075CaB230Fa67F10D8dCD",
+                            dbxenftFactoryAddress: "0xd2d0d9264D4eC70768617CE04Df7E99A8514ea26",
+                            dbxenftAddress: "0xe88C6149b626C12f88EeB29fB658c3D9666eaA28",
+                            xenftAddress: "0xd78FDA2e353C63bb0d7F6DF58C67a46dD4BBDd48",
+                            mintInfoAddress: "0xb182C13E021e18766384E6a943D32c8b28E74ff3",
                             chainId: parseInt(result, 16),
-                            chainName: "Base",
-                            currency: "ETH",
-                            priceURL: "https://base-mainnet.gateway.pokt.network/v1/lb/b1ad9a15615e95af1a87f86d",
-                            dxnTokenName: "cbDXN"
+                            chainName: "Mumbai",
+                            currency: "MATIC",
+                            priceURL: "https://polygon-mainnet.infura.io/v3/6010818c577b4531b1886965421a91d3",
+                            dxnTokenName: "mumDXN"
                         })
-                        break;
+                    break;
                 }
             });
         } catch (err: any) {
@@ -418,11 +425,11 @@ export default function ChainSetter(props: any) {
                         Switch to EthereumPoW
                     </button>
                     <button
-                        onClick={() => handleNetworkSwitch("base")}
+                        onClick={() => handleNetworkSwitch("mumbai")}
                         className="btn"
                     >
-                        <img alt="base" src={base} className="base"/>
-                        Switch to Base
+                        <img alt="polygon" src={polygon} className="polygon"/>
+                        Switch to Polygon Mumbai
                     </button>
                 </Popper>
             </div>
